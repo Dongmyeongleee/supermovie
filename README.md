@@ -102,7 +102,7 @@ ii. HTTP Method와 HTTP response status codes는 상황에 맞게 적절하게 �
 # 4, 기타 느낀점
 
 ```
-김근호
+김근호 - branch test3
 이동명 - branch test
 branch test2
 ```
