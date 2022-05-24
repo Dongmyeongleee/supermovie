@@ -66,9 +66,9 @@
             <div class="d-flex flex-row justify-content-center align-items-center mt-3 "> <span class="number" data-bs-toggle="modal" data-bs-target="#exampleModal_1"> {{ followers.length }} <span class="follow">Followers</span></span> </div>
             <div class="d-flex flex-row justify-content-center align-items-center mt-3"> <span class="number" data-bs-toggle="modal" data-bs-target="#exampleModal_2"> {{ follwings.length }} <span class="follow">Followings</span></span> </div>
             <div class="d-flex flex-row justify-content-center align-items-center mt-3"> <span class="number" data-bs-toggle="modal" data-bs-target="#exampleModal_3"> {{ like.length }} <span class="follow">좋아요 누른 영화</span></span> </div>
-            <div class="text mt-3"> <span>Welcome to Movie Dream. Please enjoy your time <br><br> Movie Dream에 오신걸 환영합니다!! </span> </div>
+            <div class="text mt-3"> <span>Welcome to Super Movie. Please enjoy your time <br><br> Super Movie에 오신걸 환영합니다!! </span> </div>
             <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> <span><i class="fa fa-twitter"></i></span> <span><i class="fa fa-facebook-f"></i></span> <span><i class="fa fa-instagram"></i></span> <span><i class="fa fa-linkedin"></i></span> </div>
-            <div class=" px-2 rounded mt-4 date "> <span class="join">Joined May,2021</span> </div>
+            <!-- <div class=" px-2 rounded mt-4 date "> <span class="join">Joined May,2021</span> </div> -->
         </div>
     </div>
 </div>
