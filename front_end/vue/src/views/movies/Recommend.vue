@@ -1,46 +1,48 @@
 <template>
 
   <div class="container" style="margin-top:50px">
+    
+    <div id="nav" class="card m-4" style="border: 10px solid rgb(132, 194, 245); background-color: white; width: 80rem">
 
-    <h2 class="mt-3"> Recommended Movies</h2>
-    <div class="row scroll-sect recent-movies">
-      <div class="row-inner">
-        <div class="tile"  v-for="movie in popular_movie_list" :key="movie.id" @click="detail(movie.id)">
-          <div class="tile-media" >
-            <img class="tapmovie" :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`">
+        <h2 class="mt-3">인기 영화</h2>
+        <div class="row scroll-sect recent-movies">
+          <div class="row-inner">
+            <div class="tile"  v-for="movie in popular_movie_list" :key="movie.id" @click="detail(movie.id)">
+              <div class="tile-media" >
+                <img class="tapmovie" :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`">
+              </div>
+              <div class="text-center">
+                <h5 class="movie-title">{{ movie.title }}</h5>
+              </div>
+            </div>
           </div>
-          <div class="text-center">
-            <h5 class="movie-title">{{ movie.title }}</h5>
+        </div>
+      
+
+      <h2>최신 영화</h2>
+      <div class="row scroll-sect recent-movies">
+        <div class="row-inner">
+          <div class="tile"  v-for="movie in recent_movie_list" :key="movie.id"  @click="detail(movie.id)">
+              <div class="tile-media">
+                <img class="tapmovie" :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`">
+              </div>
+              <div class="text-center">
+                <h5 class="movie-title">{{ movie.title }}</h5>
+              </div>
           </div>
         </div>
       </div>
-    </div>
 
-
-
-    <h2>Recent Movies</h2>
-    <div class="row scroll-sect recent-movies">
-      <div class="row-inner">
-        <div class="tile"  v-for="movie in recent_movie_list" :key="movie.id"  @click="detail(movie.id)">
-            <div class="tile-media">
+      <h2 class="mt-3"> 추천 영화</h2>
+      <div class="row scroll-sect recent-movies">
+        <div class="row-inner">
+          <div class="tile"  v-for="movie in recommend_movie_list" :key="movie.id" @click="detail(movie.id)">
+            <div class="tile-media" >
               <img class="tapmovie" :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`">
             </div>
             <div class="text-center">
               <h5 class="movie-title">{{ movie.title }}</h5>
             </div>
-        </div>
-      </div>
-    </div>
-
-    <h2 class="mt-3"> recommend movies</h2>
-    <div class="row scroll-sect recent-movies">
-      <div class="row-inner">
-        <div class="tile"  v-for="movie in recommend_movie_list" :key="movie.id" @click="detail(movie.id)">
-          <div class="tile-media" >
-            <img class="tapmovie" :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`">
-          </div>
-          <div class="text-center">
-            <h5 class="movie-title">{{ movie.title }}</h5>
           </div>
         </div>
       </div>
@@ -122,7 +124,7 @@ export default {
 }
 .row {
   overflow:scroll;
-  width:100%;
+  width:92%;
 }
 
 .row-inner {
