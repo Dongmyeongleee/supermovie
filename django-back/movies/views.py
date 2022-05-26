@@ -80,6 +80,10 @@ def recommend(request):
     favorite_movies = Movie.objects.all().order_by('-vote_average')[:10]
     favorite_serialize = MovieSerializer(favorite_movies, many=True)
 
+    # 비인기순    
+    nofavorite_movies = Movie.objects.all().order_by('vote_average')[:10]
+    nofavorite_serialize = MovieSerializer(nofavorite_movies, many=True)
+
 
     # 개봉순
     recent_movies = Movie.objects.all().order_by('-release_date')[:10]
@@ -88,7 +92,7 @@ def recommend(request):
 
     random_movies = Movie.objects.order_by('?')[:10]
     random_serialize = MovieSerializer(random_movies, many=True)
-    return Response([favorite_serialize.data, recent_serialize.data, random_serialize.data])
+    return Response([favorite_serialize.data, recent_serialize.data, random_serialize.data, nofavorite_serialize.data])
 
 
 @api_view(['GET'])
