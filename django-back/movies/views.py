@@ -1,7 +1,6 @@
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from django.db.models import Q
 from django.shortcuts import  get_object_or_404
 from .models import Movie, Review, UserRank
 from django.contrib.auth import get_user_model
@@ -132,14 +131,3 @@ def movie_like_users(request, movie_pk):
 
 
 
-@api_view(['post'])
-def search(request):
-    q = request.data.get('query')
-    if q:
-        movie = Movie.objects.filter(Q(title__icontains=q) | Q(overview__icontains=q)) 
-        if movie:
-            serializer = SearchSerializer(movie, many=True)
-            return Response(serializer.data)
-
-    return Response({'message': '검색결과가 없습니다.'})
-    

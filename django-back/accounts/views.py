@@ -26,24 +26,3 @@ def signup(request):
         user.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-
-@api_view(['POST'])
-@authentication_classes([JSONWebTokenAuthentication])
-@permission_classes([IsAuthenticated])
-def profile(request):
-    user = get_object_or_404(get_user_model(), pk=request.data.get('user_id'))
-    serializer= ProfileSerializer(user)
-    return Response(serializer.data)
-
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def follow(request, user_pk):
-    user = get_object_or_404(User, pk=user_pk)
-    if user != request.user: 
-        if user.followers.filter(pk=request.user.pk).exists():
-            user.followers.remove(request.user)
-        else:
-            user.followers.add(request.user) 
-    number = user.followers.count() 
-
-    return Response(number)
