@@ -6,11 +6,8 @@ import Login from '@/views/accounts/Login'
 import BoardList from '@/views/community/BoardList'
 import BoardListDetail from '@/views/community/BoardListDetail'
 import BoardCreate from '@/views/community/BoardCreate'
-import Profile from '@/views/accounts/Profile'
-import SearchBar from '@/views/SearchBar'
 import Recommend from '@/views/movies/Recommend'
 import MovieDetail from '@/views/movies/MovieDetail'
-import Search from '@/views/movies/Search'
 
 Vue.use(VueRouter)
 
@@ -19,11 +16,6 @@ const routes = [
     path: '',
     name: 'Home',
     component: Home
-  },
-  {
-    path: '/search/',
-    name: 'SearchBar',
-    component: SearchBar,
   },
   {
     path: '/accounts/signup/',
@@ -50,11 +42,6 @@ const routes = [
     name: 'BoardCreate',
     component: BoardCreate
   },
-  {
-    path: '/accounts/profile/',
-    name: 'Profile',
-    component: Profile
-  },
   {  
     path: '/recommend/',
     name: 'Recommend',
@@ -66,12 +53,6 @@ const routes = [
     name: 'MovieDetail',
     component: MovieDetail
   },
-  {
-    path: '/search?query=:query',
-    name: 'Search',
-    component: Search,
-    props: true
-  }
 ]
 
 const router = new VueRouter({

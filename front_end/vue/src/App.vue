@@ -6,29 +6,33 @@
         <ul class="nav" style="padding: 10px;"> 
           <div class="items">
             <img class="supermovie" src="@/supermovie.png" alt="supermovie" width="50px">
-            <router-link :to="{ name: 'Home' }" style="text-decoration:none; margin:10px; font-xize: medium" > 홈</router-link> 
+            <router-link :to="{ name: 'Home' }" style="text-decoration:none; margin:10px;" > 홈</router-link> 
             <router-link :to="{ name: 'Recommend' }" style="text-decoration:none; margin:10px"> 인기영화</router-link> 
             <router-link :to="{ name: 'BoardList' }" style="text-decoration:none; margin:10px"> 자유 게시판</router-link> 
           </div>
-          <div class="items2">
-              <input style="margin:auto" @keyup.enter="search"  v-model="query" class="form-control mr-sm-2" placeholder="영화제목을 검색해주세요!" aria-label="Search">
-              <button @click="search" class="btn my-2 my-sm-0" type="submit">Search</button>
-            <li class="nav-item dropdown">  
+          <!-- <div class="items2"> -->
+              <!-- <input style="margin:auto" @keyup.enter="search"  v-model="query" class="form-control mr-sm-2" placeholder="영화제목을 검색해주세요!" aria-label="Search">
+              <button @click="search" class="btn my-2 my-sm-0" type="submit">Search</button> -->
+            <!-- <li class="nav-item dropdown">  
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fas fa-user"></i>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a class="dropdown-item" href="#"><i class="fas fa-sliders-h fa-fw" ></i>
-                <router-link :to="{ name: 'Profile' }" style="text-decoration:none;" >Profile</router-link>
-                  </a>
-                </li>
-                <li><hr class="dropdown-divider"></li>
+              </a> -->
+              <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown"> -->
+                <!-- <li> -->
+                  <!-- <a class="dropdown-item" href="#"><i class="fas fa-sliders-h fa-fw" ></i> -->
+                <!-- <router-link :to="{ name: 'Profile' }" style="text-decoration:none;" >Profile</router-link> -->
+                  <!-- </a> -->
+                <!-- </li> -->
+                <!-- <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-fw"></i> 
                 <router-link @click.native="logout" to="#" style="text-decoration:none;" >Log out</router-link></a></li>
-              </ul>
-            </li>
-          </div>
+
+              </ul> -->
+                <div class="items3">
+                  <router-link @click.native="logout" to="#" style="text-decoration:none;"> <strong>로그아웃</strong></router-link> 
+                </div>
+            <!-- </li> -->
+          <!-- </div> -->
         </ul>
       </div>
       
@@ -102,15 +106,15 @@ export default {
     },
 
    
-    search() {
-      if (this.query){
-        // console.log(this.query)
-        this.$router.push( {name: 'Search', params:{ query: this.query}})
-      }
-      else{
-        alert('글자를 입력해주세요.')
-      }
-    },
+    // search() {
+    //   if (this.query){
+    //     // console.log(this.query)
+    //     this.$router.push( {name: 'Search', params:{ query: this.query}})
+    //   }
+    //   else{
+    //     alert('글자를 입력해주세요.')
+    //   }
+    // },
   },
   created: function () {
     const token = localStorage.getItem('jwt')
@@ -170,6 +174,11 @@ footer {
 .items2 {
   display: flex;
 }
+
+.items3 {
+  margin: 50px;
+}
+
 .search_bar {
   /* position: relative; */
   margin: 20px 0;
