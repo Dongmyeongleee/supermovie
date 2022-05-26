@@ -1,20 +1,20 @@
 <template>
   <div>
-    <h1 style="margin-top:50px">Community</h1>
+    <h1 style="margin-top:50px">자유 게시판</h1>
     <header>
       <div>
         <div class="container" style="width:80%">
           <div align="right" style="margin-right:50px">
-            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">create</button>
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">게시글 작성</button>
           </div>
           <br>
           <table class="table mb-5" v-if="boards">
             <thead>
               <tr>
-                <th scope="col">number</th>
-                <th scope="col">title</th>
-                <th scope="col">name</th>
-                <th scope="col">more</th>
+                <th scope="col">번호</th>
+                <th scope="col">제목</th>
+                <th scope="col">작성자 이름</th>
+                <th scope="col">보기</th>
               </tr>
             </thead>
             <tbody> 
