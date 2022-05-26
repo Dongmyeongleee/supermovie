@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <h2 class="mt-3"> 추천 영화</h2>
+      <h2 class="mt-3"> 랜덤 추천 영화</h2>
       <div class="row scroll-sect recent-movies">
         <div class="row-inner">
           <div class="tile"  v-for="movie in recommend_movie_list" :key="movie.id" @click="detail(movie.id)">

@@ -1,20 +1,20 @@
 <template>
   <div>
-    <h1 style="margin-top:50px">자유 게시판</h1>
+    <h1 style="margin-top:50px">Community</h1>
     <header>
       <div>
         <div class="container" style="width:80%">
           <div align="right" style="margin-right:50px">
-            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">게시글 작성</button>
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">create</button>
           </div>
           <br>
           <table class="table mb-5" v-if="boards">
             <thead>
               <tr>
-                <th scope="col">게시글 번호</th>
-                <th scope="col">제목</th>
-                <th scope="col">작성자</th>
-                <th scope="col">자세히</th>
+                <th scope="col">number</th>
+                <th scope="col">title</th>
+                <th scope="col">name</th>
+                <th scope="col">more</th>
               </tr>
             </thead>
             <tbody> 
@@ -22,13 +22,13 @@
                 <td class="table-id"> {{ board.id }} </td>
                 <td class="table-title"> {{ board.title }} </td>
                 <td class="table-id"> {{ board.username }} </td>
-                <td @click="BoardListDetail(board.id)"> Detail </td>
+                <td @click="BoardListDetail(board.id)"> detail </td>
               </tr>
             </tbody>
           </table>
           <div class="btn-cover" v-if="paginatedData">
             <button :disabled="pageNum === 0" @click="prevPage" class="page-btn">이전</button>
-            <span class="page-count">{{ pageNum + 1 }} / {{ pageCount }} 페이지</span>
+            <span class="page-count">{{ pageNum + 1 }} / {{ pageCount }} page</span>
             <button :disabled="pageNum >= pageCount - 1" @click="nextPage" class="page-btn">다음</button>
           </div>
           <div v-else class="mt-5 text-center">
@@ -41,17 +41,17 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">게시글 작성</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Create</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
           <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">제목:</label>
+            <label for="recipient-name" class="col-form-label">title:</label>
             <input type="text" v-model.trim="board1.title" placeholder="제목을 입력해주세요">
           </div>
           <div class="mb-3">
-            <label for="message-text" class="col-form-label">내용:</label>
+            <label for="message-text" class="col-form-label">content:</label>
             <textarea type="text" class="form-control" v-model.trim="board1.content" id="message-text"></textarea>
           </div>
         </form>

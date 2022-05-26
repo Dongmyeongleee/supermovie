@@ -86,24 +86,9 @@ def recommend(request):
     recent_serialize = MovieSerializer(recent_movies, many=True)
     
 
-    #알고리즘 추천
-    movie_data = Movie.objects.all()
-    temp = []
-    for movie in range(len(movie_data)):
-        score = movie_data[movie].popularity*0.5 + movie_data[movie].vote_average * 10
-        temp.append((score, movie_data[movie]))
-        temp2 = sorted(temp, key = lambda x :-x[0])[:10]
-    temp3 = []
-    for i in range(len(temp2)):
-        temp3.append(temp2[i][1].title)
-
-    recom_movies = Movie.objects.filter(
-        Q(title=temp3[0]) | Q(title=temp3[1]) | Q(title=temp3[2]) | Q(title=temp3[3]) |
-        Q(title=temp3[4]) | Q(title=temp3[5]) | Q(title=temp3[6]) | Q(title=temp3[7]) |
-        Q(title=temp3[8]) | Q(title=temp3[9]) 
-    )
-    recom_serialize = MovieSerializer(recom_movies, many=True)
-    return Response([favorite_serialize.data, recent_serialize.data, recom_serialize.data])
+    random_movies = Movie.objects.order_by('?')[:10]
+    random_serialize = MovieSerializer(random_movies, many=True)
+    return Response([favorite_serialize.data, recent_serialize.data, random_serialize.data])
 
 
 @api_view(['GET'])
